@@ -1,17 +1,22 @@
 //* STACKS *//
-//Functions : push,pop,length,peek
+//Functions : EMPTY, PUSH, POP, PEEK ,SIZE
 
 function Stack() {
   this.collection = [];
 
-  //Push
+  //EMPTY
+  this.isEmpty = () => {
+    return this.collection.length === 0;
+  };
+
+  //PUSH
   this.push = element => {
     this.collection.unshift(element);
   };
 
-  //Pop
+  //POP
   this.pop = () => {
-    if (this.collection.length === 0) {
+    if (this.isEmpty()) {
       return undefined;
     }
     let result = this.collection[this.collection.length - 1];
@@ -19,16 +24,22 @@ function Stack() {
     return result;
   };
 
-  //Length
+  //LENGTH
   this.length = () => {
-    return length(this.collection);
+    return this.collection.length;
   };
+
   //PEEK
   this.peek = () => {
-    if (this.collection.length === 0) {
+    if (this.isEmpty()) {
       return "Array is Empty";
     }
     return this.collection[this.collection.length - 1];
+  };
+  
+  //RETURN THE STACK
+  this.print = () => {
+    return this.collection;
   };
 }
 
@@ -46,6 +57,7 @@ newStack.pop();
 console.log(newStack.peek());
 newStack.pop();
 console.log(newStack.peek());
+
 // newStack.pop();
 // console.log(newStack.peek());
 console.log(newStack);

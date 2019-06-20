@@ -28,13 +28,31 @@
 // }
 // console.log(abc.nam);
 
-function abc() {
-  console.log(this);
-  let push = element => {
-    console.log(element);
-  };
-  name = "ruhail";
-  console.log(push(5));
-}
+// function abc() {
+//   console.log(this);
+//   let push = element => {
+//     console.log(element);
+//   };
+//   name = "ruhail";
+//   console.log(push(5));
+// }
 
-abc();
+// abc();
+
+let arr = [
+  { name: "Ruhail", company: "Blockchain", age: "24" },
+  { name: "Aman", company: "Rx logix", age: "20" },
+  { name: "Hitesh", company: "Blockchain", age: "26" },
+  { name: "vikas", company: "Blockchain", age: "22" },
+  { name: "saleem", company: "Blockchain", age: "25" }
+];
+
+let company = arr.filter(users => {
+  return users.company === "Blockchain";
+});
+console.log("company", company);
+
+let username = arr.map(users => {
+  return users.name;
+});
+console.log("username", username);
