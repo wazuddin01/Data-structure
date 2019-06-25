@@ -40,10 +40,9 @@ class Linked {
     let point = node;
     let prev = node;
     while (point.next != null && point.next.next != null) {
-    //   console.log(point);
+      //   console.log(point);
       prev = point.next;
       point = point.next.next;
-     
     }
     return prev;
   }
@@ -60,9 +59,23 @@ class Linked {
     if (node == null) {
       return;
     }
-    this.print(node.next);
+    this.printBack(node.next);
     console.log(node.data);
   }
+  //Reverse the list iteratively
+  reverse(node) {
+    let current = node;
+    let prev = null;
+    let next;
+    while (current != null) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    node = prev;
+  }
+
   //Return the root of the list
   getRoot() {
     return this.root;
@@ -88,3 +101,8 @@ list.printBack(root);
 // list.printBack(root);
 
 console.log("Middle Node", list.middle(root));
+
+list.reverse(root);
+console.log(root);
+
+// list.print(root);
